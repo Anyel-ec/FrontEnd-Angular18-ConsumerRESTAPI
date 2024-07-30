@@ -1,0 +1,21 @@
+<div>
+  <h1>{{ message }}</h1>
+  <table *ngIf="data.length > 0">
+    <thead>
+      <tr>
+        <th>Ordinal</th>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Unidades en Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.marca }}</td>
+        <td>{{ item.cantidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

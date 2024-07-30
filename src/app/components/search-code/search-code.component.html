@@ -1,0 +1,17 @@
+<div class="container">
+  <form (submit)="buscarElectrodomestico(codigo.value); $event.preventDefault();">
+    <label for="codigo">Ingrese el código</label>
+    <input type="text" id="codigo" #codigo name="codigo" class="form-control" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+</div>
+
+<div *ngIf="status === 'disponible'">
+  <app-electrodomestico-disponible [data]="electrodomestico"></app-electrodomestico-disponible>
+</div>
+<div *ngIf="status === 'poco_disponible'">
+  <app-electrodomestico-poco-disponible [data]="electrodomestico" [message]="message"></app-electrodomestico-poco-disponible>
+</div>
+<div *ngIf="status === 'no_disponible'">
+  <app-electrodomestico-no-disponible [data]="electrodomestico" [message]="message"></app-electrodomestico-no-disponible>
+</div>
