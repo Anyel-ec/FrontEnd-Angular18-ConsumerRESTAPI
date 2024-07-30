@@ -1,7 +1,11 @@
-<div>
-  <h1>Electrodoméstico Disponible</h1>
-  <p>Nombre: {{ data.nombre }}</p>
-  <p>Marca: {{ data.marca }}</p>
-  <p>Modelo: {{ data.modelo }}</p>
-  <p>Fecha de Elaboración: {{ data.fecha }}</p>
+<div class="container mt-4">
+  <h1 class="display-4">Electrodoméstico Disponible</h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Nombre: {{ data.nombre }}</h5>
+      <p class="card-text">Marca: {{ data.marca }}</p>
+      <p class="card-text">Modelo: {{ data.modelo }}</p>
+      <p class="card-text">Fecha de Elaboración: {{ data.fecha }}</p>
+    </div>
+  </div>
 </div>

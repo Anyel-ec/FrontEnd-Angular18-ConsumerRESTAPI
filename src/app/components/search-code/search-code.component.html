@@ -1,8 +1,12 @@
-<div class="container">
-  <form (submit)="buscarElectrodomestico(codigo.value); $event.preventDefault();">
-    <label for="codigo">Ingrese el código</label>
-    <input type="text" id="codigo" #codigo name="codigo" class="form-control" />
-    <button type="submit" class="btn btn-primary">Buscar</button>
+<div class="container mt-4">
+  <form class="d-flex" (submit)="buscarElectrodomestico(codigo.value); $event.preventDefault();">
+    <div class="flex-grow-1 me-2">
+      <label for="codigo" class="form-label">Ingrese el código</label>
+      <input type="text" id="codigo" #codigo name="codigo" class="form-control" />
+    </div>
+    <div class="align-self-end">
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
   </form>
 </div>
 
@@ -10,8 +14,12 @@
   <app-electrodomestico-disponible [data]="electrodomestico"></app-electrodomestico-disponible>
 </div>
 <div *ngIf="status === 'poco_disponible'">
-  <app-electrodomestico-poco-disponible [data]="electrodomestico" [message]="message"></app-electrodomestico-poco-disponible>
+  <app-electrodomestico-poco-disponible [data]="electrodomestico" [message]="message" (edit)="openEditForm($event)"></app-electrodomestico-poco-disponible>
 </div>
 <div *ngIf="status === 'no_disponible'">
-  <app-electrodomestico-no-disponible [data]="electrodomestico" [message]="message"></app-electrodomestico-no-disponible>
+  <app-electrodomestico-no-disponible [data]="electrodomestico" [message]="message" (edit)="openEditForm($event)"></app-electrodomestico-no-disponible>
+</div>
+
+<div *ngIf="editItem">
+  <app-electrodomestico-edit [data]="editItem" (updated)="closeEditForm()"></app-electrodomestico-edit>
 </div>

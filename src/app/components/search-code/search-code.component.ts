@@ -5,11 +5,12 @@ import { ElectrodomesticoPocoDisponibleComponent } from '../../electrodomestico-
 import { ElectrodomesticoNoDisponibleComponent } from '../../electrodomestico-no-disponible/electrodomestico-no-disponible.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ElectrodomesticoEditComponent } from '../../electrodomestico-edit/electrodomestico-edit.component';
 
 @Component({
   selector: 'app-search-code',
   standalone: true,
-  imports: [CommonModule, ElectrodomesticoDisponibleComponent, ElectrodomesticoPocoDisponibleComponent, ElectrodomesticoNoDisponibleComponent, HttpClientModule],
+  imports: [CommonModule, ElectrodomesticoDisponibleComponent, ElectrodomesticoPocoDisponibleComponent, ElectrodomesticoNoDisponibleComponent, HttpClientModule, ElectrodomesticoEditComponent],
   providers: [ElectrodomesticoService],
   templateUrl: './search-code.component.html',
   styleUrl: './search-code.component.scss'
@@ -18,6 +19,7 @@ export class SearchCodeComponent {
   status: string = '';
   electrodomestico: any;
   message: string = '';
+  editItem: any = null;
 
   constructor(private electrodomesticoService: ElectrodomesticoService) {}
 
@@ -41,5 +43,14 @@ export class SearchCodeComponent {
         }
       );
     }
+  }
+
+  openEditForm(item: any): void {
+    this.editItem = item;
+  }
+
+  closeEditForm(): void {
+    this.editItem = null;
+    this.buscarElectrodomestico(this.electrodomestico.id_electrodomestico);
   }
 }

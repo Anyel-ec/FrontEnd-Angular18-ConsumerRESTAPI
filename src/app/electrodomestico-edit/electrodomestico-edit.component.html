@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h1 class="display-4">Editar Electrodoméstico</h1>
+  <form (ngSubmit)="updateElectrodomestico()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" class="form-control" [value]="data.nombre" disabled>
+    </div>
+    <div class="form-group">
+      <label for="marca">Marca</label>
+      <input type="text" id="marca" class="form-control" [value]="data.marca" disabled>
+    </div>
+    <div class="form-group">
+      <label for="modelo">Modelo</label>
+      <input type="text" id="modelo" class="form-control" [value]="data.modelo" disabled>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha de Elaboración</label>
+      <input type="text" id="fecha" class="form-control" [value]="data.fecha" disabled>
+    </div>
+    <div class="form-group">
+      <label for="cantidad">Cantidad</label>
+      <input type="number" id="cantidad" class="form-control" [(ngModel)]="cantidad" name="cantidad" required>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Actualizar</button>
+  </form>
+</div>

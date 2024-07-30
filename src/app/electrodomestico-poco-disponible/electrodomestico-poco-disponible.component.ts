@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-electrodomestico-poco-disponible',
@@ -11,4 +11,9 @@ import { Component, Input } from '@angular/core';
 export class ElectrodomesticoPocoDisponibleComponent {
   @Input() data: any;
   @Input() message: any;
+  @Output() edit = new EventEmitter<any>();
+
+  editar(item: any) {
+    this.edit.emit(item);
+  }
 }
